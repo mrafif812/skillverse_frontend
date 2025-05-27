@@ -58,7 +58,89 @@
             <div class="flex">
                 <div class="flex justify-between items-center mr-16">
                     <nav class="flex items-center ml-3">
-                        <div class="group relative">
+                        <div class="flex items-center ml-[25px]" v-if="!authStore.user">
+                            <router-link :to="{name: 'login'}" class="font-[600] text-[14px] text-[#1E293B] mx-4">Login</router-link>
+                            <router-link :to="{name: 'register'}" class="font-[600] text-[14px] text-[#1E293B] mx-4">Join Now</router-link>
+                        </div>
+                        <div class="flex items-center ml-[25px]" v-else>
+                            <router-link :to="{name: 'login'}" class="font-[600] text-[14px] text-[#1E293B] mx-4">My Courses</router-link>
+                            <div class="group relative mx-2">
+                                <router-link class="flex items-center text-sm leading-none" to=""> 
+                                    <i class="fa-regular fa-heart text-[22px]"></i>
+                                </router-link>
+                                <div class="hidden group-hover:block absolute right-0">
+                                    <div class="w-max bg-[#F8F7FF] py-[20px] px-[12px] rounded-lg mt-2">
+                                        <div class="flex items-center w-[276px]">
+                                            <div class="relative basis-1/4">
+                                                <img src="\images\project_images\demo.jpg" class="w-[69px] h-[69px] rounded-[10px]" alt="">
+                                                <span class="absolute top-0 right-1 text-red-600"><i class="fa-solid fa-minus"></i></span>
+                                            </div>
+                                            <div class="ml-3 basis-3/4">
+                                                <router-link to="">
+                                                    <div class="text-[13px] font-[500px]">Node Js</div>
+                                                    <div class="text-[12px] font-[400px] mt-1 mb-2"><span>By</span> cool ninja</div>
+                                                    <div class="text-[14px] font-[600px]">$5 <span class="line-through text-[10px] font-[500px]">$25</span></div>
+                                                </router-link>
+                                            </div>
+                                        </div>
+                                        <div class="flex justify-center items-center mt-[20px] mx-[20px]">
+                                            <router-link to="" class="w-[100%] bg-[#754ffe] text-white py-[13px] px-[15px] rounded-lg text-[14px] font-[600] text-center">Go to wishlist</router-link>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="group relative mx-2">
+                                <router-link class="flex items-center text-sm leading-none" to=""> 
+                                    <i class="fa-regular fa-bell text-[22px]"></i>
+                                </router-link>
+                                <div class="hidden group-hover:block absolute right-0">
+                                    <div class="w-max bg-[#F8F7FF] py-[20px] px-[12px] rounded-lg mt-2">
+                                        <div class="flex items-center w-[276px]">
+                                            <div class="relative basis-1/4">
+                                                <img src="\images\project_images\demo.jpg" class="w-[69px] h-[69px] rounded-[10px]" alt="">
+                                                <span class="absolute top-0 right-1 text-red-600"><i class="fa-solid fa-minus"></i></span>
+                                            </div>
+                                            <div class="ml-3 basis-3/4">
+                                                <router-link to="">
+                                                    <div class="text-[13px] font-[500px]">Node Js</div>
+                                                    <div class="text-[12px] font-[400px] mt-1 mb-2"><span>By</span> cool ninja</div>
+                                                    <div class="text-[14px] font-[600px]">$5 <span class="line-through text-[10px] font-[500px]">$25</span></div>
+                                                </router-link>
+                                            </div>
+                                        </div>
+                                        <div class="flex justify-center items-center mt-[20px] mx-[20px]">
+                                            <router-link to="" class="w-[100%] bg-[#754ffe] text-white py-[13px] px-[15px] rounded-lg text-[14px] font-[600] text-center">Mark all as read</router-link>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="group relative mx-2">
+                                <router-link class="flex items-center text-sm leading-none" to=""> 
+                                    <img src="\images\project_images\placeholder.png" class="w-[34px] h-[34px] rounded-[50%]" alt="">
+                                </router-link>
+                                <div class="hidden group-hover:block absolute right-0">
+                                    <div class="w-max bg-[#F8F7FF] py-[20px] px-[12px] rounded-lg mt-2">
+                                        <div class="flex items-center w-[276px]">
+                                            <div class="relative basis-1/4">
+                                                <img src="\images\project_images\demo.jpg" class="w-[69px] h-[69px] rounded-[10px]" alt="">
+                                                <span class="absolute top-0 right-1 text-red-600"><i class="fa-solid fa-minus"></i></span>
+                                            </div>
+                                            <div class="ml-3 basis-3/4">
+                                                <router-link to="">
+                                                    <div class="text-[13px] font-[500px]">Node Js</div>
+                                                    <div class="text-[12px] font-[400px] mt-1 mb-2"><span>By</span> cool ninja</div>
+                                                    <div class="text-[14px] font-[600px]">$5 <span class="line-through text-[10px] font-[500px]">$25</span></div>
+                                                </router-link>
+                                            </div>
+                                        </div>
+                                        <div class="flex justify-center items-center mt-[20px] mx-[20px]">
+                                            <button @click="handleLogout" class="font-[600] text-[14px] text-[#1E293B] mx-4">Logout</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group relative mx-2">
                             <router-link class="flex items-center text-sm leading-none" to=""> 
                                 <i class="fa-solid fa-cart-shopping text-[22px]"></i>
                             </router-link>
@@ -83,10 +165,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="flex item-center ml-[25px]">
-                            <router-link :to="{name: 'login'}" class="font-[600] text-[14px] text-[#1E293B] mx-4">Login</router-link>
-                            <router-link :to="{name: 'register'}" class="font-[600] text-[14px] text-[#1E293B] mx-4">Join Now</router-link>
-                        </div>
                     </nav>
                 </div>
             </div>
@@ -94,6 +172,22 @@
     </section>
 </template>
 
-<script>
+<script setup>
+import useAuthStore from '@/stores/auth';
+import { useRouter } from 'vue-router';
+
+const authStore = useAuthStore();
+const router = useRouter();
+
+const handleLogout = async () => {
+    console.log('logout');
+    try {
+        await authStore.logout();
+        router.push('/');
+    } catch (e) {
+        // error.value = e.response?.data?.message || 'Login failed';
+        console.log(e);
+    }
+};
 
 </script>

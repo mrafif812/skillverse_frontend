@@ -6,19 +6,19 @@
         <div class="basis-1/2 mx-auto text-[#676C7D] ">
             <h3 class="text-[34px] font-[700] mb-[16px]">Login</h3>
             <p class="mb-[51px] [word-spacing:0.5rem] font-[400] text-[15px]">Explore, learn, and grow with us. enjoy a seamless and enriching educational journey. lets begin!</p>
-            <form>
+            <form @submit.prevent="handleLogin">
                 <div class="mb-6">
                     <h5 class="text-[16px] font-[500] mb-[20px]">Your email</h5>
                     <div class="relative">
                         <i class="fa-solid fa-user absolute left-[18px] top-[34%]"></i>
-                        <input type="email" placeholder="Enter you email" class="w-[100%] pt-[14px] pb-[13px] pl-[48px] rounded-[11px] text-[14px] font-[400] text-[#6e798a] border-none bg-[#6e798a1c]">
+                        <input type="email" v-model="email" placeholder="Enter you email" class="w-[100%] pt-[14px] pb-[13px] pl-[48px] rounded-[11px] text-[14px] font-[400] text-[#6e798a] border-none bg-[#6e798a1c]">
                     </div>
                 </div>
                 <div class="mb-3">
                     <h5 class="text-[16px] font-[500] mb-[20px]">Password</h5>
                     <div class="relative">
                         <i class="fa-solid fa-key absolute left-[18px] top-[34%]"></i>
-                        <input type="password" placeholder="Enter your valid password" class="w-[100%] pt-[14px] pb-[13px] pl-[48px] rounded-[11px] text-[14px] font-[400] text-[#6e798a] border-none bg-[#6e798a1c]">
+                        <input type="password" v-model="password" placeholder="Enter your valid password" class="w-[100%] pt-[14px] pb-[13px] pl-[48px] rounded-[11px] text-[14px] font-[400] text-[#6e798a] border-none bg-[#6e798a1c]">
                         <i class="fa-solid fas cursor-pointer fa-eye-slash absolute right-[20px] top-[34%] left-[unset]"></i>
                     </div>
                     <div class="flex justify-end">
@@ -42,6 +42,22 @@
     </section>
 </template>
 
-<script>
+<script setup>
+    import { ref } from 'vue';
+    import { useRouter  } from 'vue-router';
+    import useAuthStore from '../../stores/auth';
 
+    const email = ref('') 
+    const password = ref('') 
+    const auth = useAuthStore(); 
+    const router = useRouter();
+    
+    const handleLogin = async () => {
+        try {
+            await auth.login({ email: email.value, password: password.value });
+            router.push('/dashboard');
+        } catch (e) {
+            console.log(e);
+        }
+    };  
 </script>
