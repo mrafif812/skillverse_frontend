@@ -1,10 +1,11 @@
 <template>
   <section class="bg-[#F8F7FF] sm:py-12 sm:mt-9">
     <div class="custom-container-no-flex">
-      <div>
-        <h1 class="sm:text-3xl sm:font-bold sm:mb-7 text-[#1E293B]">Top courses</h1>
-        <p class="sm:text-xs sm:mb-7 text-[#676C7D]">These are the most popular courses among listen courses
-          learners worldwide</p>
+        <div class="flex flex-col justify-center items-center">
+          <h1 class="sm:text-3xl sm:font-bold sm:mb-7 text-[#1E293B]">Top courses</h1>
+          <p class="sm:text-xs sm:mb-7 text-[#676C7D]">These are the most popular courses among listen courses
+            learners worldwide</p>
+        </div>
         <div class="mx-auto max-w-screen-xl px-4 relative box-border">
           <swiper 
             :modules="modules" 
@@ -36,7 +37,6 @@
             <span class="text-xl"><i class="fa-solid fa-chevron-right"></i></span>
           </div>
         </div>
-      </div>
     </div>
   </section>
 </template>
