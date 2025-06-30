@@ -6,6 +6,9 @@
     .custom-container {
         @apply flex container mx-auto w-full max-w-[1140px] p-1;
     }
+    .custom-container-no-flex {
+        @apply w-full max-w-[1140px] px-4 mx-auto;;
+    }
 
     .shadow-custom {
         box-shadow: 0 7px 29px 0 rgba(100, 100, 111, 0.2);
